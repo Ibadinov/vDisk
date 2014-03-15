@@ -1,14 +1,16 @@
 #import "VDFilesystemDelegate.h"
 
 #import <OAuth2Client/NXOAuth2.h>
-#import <Fuse4X/Fuse4X.h>
+#import <OSXFUSE/OSXFUSE.h>
 #import <sys/xattr.h>
 #import <sys/stat.h>
 
 #import "VDAudioTrack.h"
 #import "NSData+MD5.h"
 
+
 NSString *const VDAccountType = @"VDAccountType";
+
 
 // NOTE: It is fine to remove the below sections that are marked as 'Optional'.
 
@@ -17,6 +19,8 @@ NSString *const VDAccountType = @"VDAccountType";
 // GMUserFileSystemOperations found in the documentation at:
 // http://macfuse.googlecode.com/svn/trunk/core/sdk-objc/Documentation/index.html
 @implementation VDFilesystemDelegate
+
+@synthesize tracks;
 
 - (id)init
 {
@@ -50,7 +54,6 @@ NSString *const VDAccountType = @"VDAccountType";
     [request setAccount:account];
     
     NSURLRequest *signedRequest = [request signedURLRequest];
-    [request release];
     
     return [NSURLConnection sendSynchronousRequest:signedRequest returningResponse:nil error:error];
 }
@@ -71,32 +74,25 @@ VDFileList(NSDictionary *tracks)
 
 - (void)updateTracks
 {
-    NSData *data = [self performMethod:@"audio.get" usingParameters:nil error:error];
+    NSError *error = nil;
+    NSData *data = [self performMethod:@"audio.get" usingParameters:nil error:&error];
     if (!data) {
-        return NSLog(@"Failed to retrive list of tracks, error: %@", *error);
+        return NSLog(@"Failed to retrive list of tracks, error: %@", error);
     }
     @synchronized(self) {
         NSString *dataChecksum = [data md5];
         if ([checksum isEqualToString:dataChecksum]) {
             return;
         }
-        [tracks release];
         NSXMLDocument *document = [[NSXMLDocument alloc] initWithData:data options:0 error:nil];
         tracks = [[NSMutableDictionary alloc] initWithCapacity:[[document rootElement] childCount]];
         
         for (NSXMLElement *audio in [[document rootElement] children]) {
-            VDAudioTrack *track = [[[VDAudioTrack alloc] initWithXMLElement:audio] autorelease];
+            VDAudioTrack *track = [[VDAudioTrack alloc] initWithXMLElement:audio];
             [tracks setObject:track forKey:[@"/" stringByAppendingPathComponent:[track filename]]];
         }
-        [document release];
-        [checksum release];
-        checksum = [dataChecksum retain];
+        checksum = dataChecksum;
     }
-}
-
-- (NSDictionary *)tracks
-{
-    return tracks
 }
 
 - (NSArray *)contentsOfDirectoryAtPath:(NSString *)path error:(NSError **)error
@@ -111,9 +107,9 @@ VDFileList(NSDictionary *tracks)
                                 userData:(id)userData
                                    error:(NSError **)error
 {
-    VDAudioTrack *track;
+    __strong VDAudioTrack *track;
     @synchronized(self) {
-        track = [[tracks objectForKey:path] retain];
+        track = [tracks objectForKey:path];
     }
     if (!track) {
         NSLog(@"No entry at path: %@", path);
@@ -130,7 +126,6 @@ VDFileList(NSDictionary *tracks)
         [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:error];
         
         if (!response) {
-            [track release];
             NSLog(@"Failed to retrieve attribtes, error: %@", *error);
             return nil;
         }
@@ -149,7 +144,6 @@ VDFileList(NSDictionary *tracks)
                                 [NSNumber numberWithLong:0444], NSFilePosixPermissions, 
                                 NSFileTypeRegular, NSFileType, 
                                 nil];
-    [track release];
     return attributes;
 }
 
@@ -167,9 +161,9 @@ VDFileList(NSDictionary *tracks)
 #if VDFS_SIMPLE_FILE_CONTENTS
 
 - (NSData *)contentsAtPath:(NSString *)path {
-    VDAudioTrack *track;
+    __strong VDAudioTrack *track;
     @synchronized(self) {
-        track = [[tracks objectForKey:path] retain];
+        track = [tracks objectForKey:path];
     }
     if (!track) {
         return nil;  // Equivalent to ENOENT
@@ -185,12 +179,12 @@ VDFileList(NSDictionary *tracks)
 
 - (BOOL)openFileAtPath:(NSString *)path
                   mode:(int)mode
-              userData:(id *)userData
+              userData:(const void **)userData
                  error:(NSError **)error
 {
     NSLog(@"Opening file: %@", path);
     @synchronized(self) {
-        *userData = [[tracks objectForKey:path] retain];
+        *userData = CFBridgingRetain([tracks objectForKey:path]);
     }
     if (!*userData) {
         *error = [NSError errorWithPOSIXCode:ENOENT];
@@ -199,10 +193,10 @@ VDFileList(NSDictionary *tracks)
         return YES;
 }
 
-- (void)releaseFileAtPath:(NSString *)path userData:(id)userData
+- (void)releaseFileAtPath:(NSString *)path userData:(void *)userData
 {
     NSLog(@"Closing file: %@", path);
-    [userData release];
+    CFBridgingRelease(userData);
 }
 
 - (int)readFileAtPath:(NSString *)path
@@ -213,7 +207,7 @@ VDFileList(NSDictionary *tracks)
                 error:(NSError **)error
 {
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:[userData uri]]];
-    NSString *range = [NSString stringWithFormat:@"bytes=%lu-%lu", offset, (offset + size - 1)];
+    NSString *range = [NSString stringWithFormat:@"bytes=%zd-%zd", offset, (offset + size - 1)];
     [request addValue:range forHTTPHeaderField:@"Range"];
     NSLog(@"Requesting file data using URI: %@", [userData uri]);
     
@@ -222,7 +216,7 @@ VDFileList(NSDictionary *tracks)
     NSData *data = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:error];
     
     if (!data) {
-        NSLog(@"Failed to retrieve data, error: %@", error);
+        NSLog(@"Failed to retrieve data, error: %@", *error);
         return -1;
     }
     

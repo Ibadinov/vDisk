@@ -10,23 +10,21 @@
 
 @interface VDAudioTrack : NSObject {
 @private
-    NSString    *artist;
-    NSString    *title;
-    NSString    *uri;
-    NSUInteger  identifier;
-    NSUInteger  duration;
-    NSInteger   size;
-    NSDate      *modificationDate;
+    __strong NSString   *artist;
+    __strong NSString   *title;
+    __strong NSString   *uri;
+    NSUInteger          identifier;
+    NSUInteger          duration;
+    NSInteger           size;
+    __strong NSDate     *modificationDate;
 }
 
 - (id)initWithXMLElement:(NSXMLElement *)anElement;
-- (NSString *)filename;
-- (NSString *)uri;
 
-- (NSInteger)size;
-- (NSDate *)modificationDate;
+@property (readonly) NSString *filename;
+@property (readonly) NSString *uri;
 
-- (void)setSize:(NSInteger)aSize;
-- (void)setModificationDate:(NSDate *)aDate;
+@property NSInteger size;
+@property NSDate    *modificationDate;
 
 @end

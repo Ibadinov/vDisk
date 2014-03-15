@@ -5,11 +5,15 @@ extern NSString *const VDAccountType;
 #define VDFS_SIMPLE_FILE_CONTENTS 0
 
 @interface VDFilesystemDelegate : NSObject  {
-    NSMutableDictionary *tracks;
-    NSString            *checksum;
+    __strong NSMutableDictionary *tracks;
+    __strong NSString            *checksum;
 }
 
 - (id)init;
+
+#pragma mark Properties
+
+@property (readonly) NSDictionary *tracks;
 
 #pragma mark Directory Contents
 
@@ -35,10 +39,10 @@ extern NSString *const VDAccountType;
 
 - (BOOL)openFileAtPath:(NSString *)path
                   mode:(int)mode
-              userData:(id *)userData
+              userData:(const void **)userData
                  error:(NSError **)error;
 
-- (void)releaseFileAtPath:(NSString *)path userData:(id)userData;
+- (void)releaseFileAtPath:(NSString *)path userData:(void *)userData;
 
 - (int)readFileAtPath:(NSString *)path
              userData:(id)userData

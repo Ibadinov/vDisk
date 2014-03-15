@@ -10,11 +10,11 @@
 #import <WebKit/WebKit.h>
 
 @interface VDAppDelegate : NSObject <NSApplicationDelegate> {
-    id fileSystem;
-    id fileSystemDelegate;
-    id accessToken;
-    id _window;
-    id webView;
+    __strong id fileSystem;
+    __strong id fileSystemDelegate;
+    __strong id accessToken;
+    __unsafe_unretained id _window;
+    __unsafe_unretained id webView;
 }
 
 @property (assign) IBOutlet NSWindow *window;

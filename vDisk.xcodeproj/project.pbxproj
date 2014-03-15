@@ -20,8 +20,34 @@
 		1891DDB818D47B1C00452DE9 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1891DDB118D47B1C00452DE9 /* InfoPlist.strings */; };
 		1891DDB918D47B1C00452DE9 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1891DDB318D47B1C00452DE9 /* MainMenu.xib */; };
 		1891DDBA18D47B1C00452DE9 /* vDisk.icns in Resources */ = {isa = PBXBuildFile; fileRef = 1891DDB518D47B1C00452DE9 /* vDisk.icns */; };
-		1891DDBB18D47B1C00452DE9 /* vDisk.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1891DDB618D47B1C00452DE9 /* vDisk.plist */; };
+		1891DDBD18D47FFD00452DE9 /* OSXFUSE.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1891DDBC18D47FFD00452DE9 /* OSXFUSE.framework */; };
+		1891DDC718D4818400452DE9 /* OAuth2Client.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1891DDC418D480CE00452DE9 /* OAuth2Client.framework */; };
+		1891DDCB18D4871F00452DE9 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1891DDCA18D4871F00452DE9 /* WebKit.framework */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		1891DDC318D480CE00452DE9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1891DDBE18D480CD00452DE9 /* OAuth2Client.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 942FFCD612315E0A00E6C65E;
+			remoteInfo = OAuth2Client.framework;
+		};
+		1891DDC518D480CE00452DE9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1891DDBE18D480CD00452DE9 /* OAuth2Client.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = D2AAC07E0554694100DB518D;
+			remoteInfo = OAuth2Client;
+		};
+		1891DDC818D4818A00452DE9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1891DDBE18D480CD00452DE9 /* OAuth2Client.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 942FFCD512315E0A00E6C65E;
+			remoteInfo = OAuth2Client.framework;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		1891DD5E18D479B600452DE9 /* vDisk.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = vDisk.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -50,6 +76,9 @@
 		1891DDB418D47B1C00452DE9 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		1891DDB518D47B1C00452DE9 /* vDisk.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = vDisk.icns; sourceTree = "<group>"; };
 		1891DDB618D47B1C00452DE9 /* vDisk.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = vDisk.plist; sourceTree = "<group>"; };
+		1891DDBC18D47FFD00452DE9 /* OSXFUSE.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OSXFUSE.framework; path = ../../../../../../Library/Frameworks/OSXFUSE.framework; sourceTree = "<group>"; };
+		1891DDBE18D480CD00452DE9 /* OAuth2Client.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = OAuth2Client.xcodeproj; path = OAuth2Client/OAuth2Client.xcodeproj; sourceTree = "<group>"; };
+		1891DDCA18D4871F00452DE9 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,6 +86,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1891DDCB18D4871F00452DE9 /* WebKit.framework in Frameworks */,
+				1891DDC718D4818400452DE9 /* OAuth2Client.framework in Frameworks */,
+				1891DDBD18D47FFD00452DE9 /* OSXFUSE.framework in Frameworks */,
 				1891DD6218D479B600452DE9 /* Cocoa.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -70,6 +102,7 @@
 				1891DD6718D479B600452DE9 /* vDisk */,
 				1891DD6018D479B600452DE9 /* Frameworks */,
 				1891DD5F18D479B600452DE9 /* Products */,
+				1891DDBE18D480CD00452DE9 /* OAuth2Client.xcodeproj */,
 			);
 			sourceTree = "<group>";
 		};
@@ -84,6 +117,8 @@
 		1891DD6018D479B600452DE9 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				1891DDCA18D4871F00452DE9 /* WebKit.framework */,
+				1891DDBC18D47FFD00452DE9 /* OSXFUSE.framework */,
 				1891DD6118D479B600452DE9 /* Cocoa.framework */,
 				1891DD6318D479B600452DE9 /* Other Frameworks */,
 			);
@@ -144,6 +179,15 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
+		1891DDBF18D480CD00452DE9 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				1891DDC418D480CE00452DE9 /* OAuth2Client.framework */,
+				1891DDC618D480CE00452DE9 /* libOAuth2Client.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -158,6 +202,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				1891DDC918D4818A00452DE9 /* PBXTargetDependency */,
 			);
 			name = vDisk;
 			productName = vDisk;
@@ -185,12 +230,35 @@
 			mainGroup = 1891DD5518D479B600452DE9;
 			productRefGroup = 1891DD5F18D479B600452DE9 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 1891DDBF18D480CD00452DE9 /* Products */;
+					ProjectRef = 1891DDBE18D480CD00452DE9 /* OAuth2Client.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				1891DD5D18D479B600452DE9 /* vDisk */,
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		1891DDC418D480CE00452DE9 /* OAuth2Client.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = OAuth2Client.framework;
+			remoteRef = 1891DDC318D480CE00452DE9 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		1891DDC618D480CE00452DE9 /* libOAuth2Client.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libOAuth2Client.a;
+			remoteRef = 1891DDC518D480CE00452DE9 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		1891DD5C18D479B600452DE9 /* Resources */ = {
@@ -199,7 +267,6 @@
 			files = (
 				1891DDB918D47B1C00452DE9 /* MainMenu.xib in Resources */,
 				1891DDBA18D47B1C00452DE9 /* vDisk.icns in Resources */,
-				1891DDBB18D47B1C00452DE9 /* vDisk.plist in Resources */,
 				1891DDB818D47B1C00452DE9 /* InfoPlist.strings in Resources */,
 				1891DDB718D47B1C00452DE9 /* Credits.rtf in Resources */,
 			);
@@ -224,6 +291,14 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		1891DDC918D4818A00452DE9 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = OAuth2Client.framework;
+			targetProxy = 1891DDC818D4818A00452DE9 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		1891DDAF18D47B1C00452DE9 /* Credits.rtf */ = {
@@ -327,6 +402,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(LOCAL_LIBRARY_DIR)/Frameworks",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = vDisk/Sources/vDisk.pch;
 				INFOPLIST_FILE = vDisk/Resources/vDisk.plist;
@@ -339,6 +418,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(LOCAL_LIBRARY_DIR)/Frameworks",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = vDisk/Sources/vDisk.pch;
 				INFOPLIST_FILE = vDisk/Resources/vDisk.plist;

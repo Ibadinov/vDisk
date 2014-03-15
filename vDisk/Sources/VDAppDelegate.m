@@ -8,7 +8,7 @@
 
 #import "VDAppDelegate.h"
 #import "VDFilesystemDelegate.h"
-#import <Fuse4X/Fuse4X.h>
+#import <OSXFUSE/OSXFUSE.h>
 #import <OAuth2Client/NXOAuth2.h>
 
 static NSString *VDClientID = nil;
@@ -20,10 +20,6 @@ static NSString *VDSecret = nil;
 @synthesize window = _window;
 @synthesize webView;
 
-- (void)dealloc
-{
-    [super dealloc];
-}
 
 - (void)mountFilesystem
 {
@@ -107,7 +103,7 @@ static NSString *VDSecret = nil;
     NSDictionary* userInfo = [notification userInfo];
     NSError* error = [userInfo objectForKey:kGMUserFileSystemErrorKey];
     NSLog(@"kGMUserFileSystem Error: %@, userInfo=%@", error, [error userInfo]);
-    NSRunAlertPanel(@"Mount Failed", [error localizedDescription], nil, nil, nil);
+    NSRunAlertPanel(@"Mount Failed", @"%@", nil, nil, nil, [error localizedDescription]);
     [[NSApplication sharedApplication] terminate:nil];
 }
 
@@ -128,8 +124,6 @@ static NSString *VDSecret = nil;
 {
     [[NSNotificationCenter defaultCenter] removeObserver:self];
     [fileSystem unmount];
-    [fileSystem release];
-    [fileSystemDelegate release];
     return NSTerminateNow;
 }
 

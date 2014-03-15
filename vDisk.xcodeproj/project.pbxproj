@@ -1,0 +1,374 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		1891DD6218D479B600452DE9 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1891DD6118D479B600452DE9 /* Cocoa.framework */; };
+		1891DDA618D47B1000452DE9 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1891DD9618D47B1000452DE9 /* main.m */; };
+		1891DDA718D47B1000452DE9 /* NSData+MD5.m in Sources */ = {isa = PBXBuildFile; fileRef = 1891DD9818D47B1000452DE9 /* NSData+MD5.m */; };
+		1891DDA818D47B1000452DE9 /* NSError+POSIX.m in Sources */ = {isa = PBXBuildFile; fileRef = 1891DD9A18D47B1000452DE9 /* NSError+POSIX.m */; };
+		1891DDA918D47B1000452DE9 /* NSString+ShellEscape.m in Sources */ = {isa = PBXBuildFile; fileRef = 1891DD9C18D47B1000452DE9 /* NSString+ShellEscape.m */; };
+		1891DDAA18D47B1000452DE9 /* NSXMLElement+FastAccess.m in Sources */ = {isa = PBXBuildFile; fileRef = 1891DD9E18D47B1000452DE9 /* NSXMLElement+FastAccess.m */; };
+		1891DDAB18D47B1000452DE9 /* VDAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1891DDA018D47B1000452DE9 /* VDAppDelegate.m */; };
+		1891DDAC18D47B1000452DE9 /* VDAudioTrack.m in Sources */ = {isa = PBXBuildFile; fileRef = 1891DDA218D47B1000452DE9 /* VDAudioTrack.m */; };
+		1891DDAD18D47B1000452DE9 /* VDFilesystemDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1891DDA418D47B1000452DE9 /* VDFilesystemDelegate.m */; };
+		1891DDB718D47B1C00452DE9 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 1891DDAF18D47B1C00452DE9 /* Credits.rtf */; };
+		1891DDB818D47B1C00452DE9 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1891DDB118D47B1C00452DE9 /* InfoPlist.strings */; };
+		1891DDB918D47B1C00452DE9 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1891DDB318D47B1C00452DE9 /* MainMenu.xib */; };
+		1891DDBA18D47B1C00452DE9 /* vDisk.icns in Resources */ = {isa = PBXBuildFile; fileRef = 1891DDB518D47B1C00452DE9 /* vDisk.icns */; };
+		1891DDBB18D47B1C00452DE9 /* vDisk.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1891DDB618D47B1C00452DE9 /* vDisk.plist */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		1891DD5E18D479B600452DE9 /* vDisk.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = vDisk.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		1891DD6118D479B600452DE9 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
+		1891DD6418D479B600452DE9 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
+		1891DD6518D479B600452DE9 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		1891DD6618D479B600452DE9 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		1891DD9618D47B1000452DE9 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = Sources/main.m; sourceTree = "<group>"; };
+		1891DD9718D47B1000452DE9 /* NSData+MD5.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSData+MD5.h"; path = "Sources/NSData+MD5.h"; sourceTree = "<group>"; };
+		1891DD9818D47B1000452DE9 /* NSData+MD5.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSData+MD5.m"; path = "Sources/NSData+MD5.m"; sourceTree = "<group>"; };
+		1891DD9918D47B1000452DE9 /* NSError+POSIX.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSError+POSIX.h"; path = "Sources/NSError+POSIX.h"; sourceTree = "<group>"; };
+		1891DD9A18D47B1000452DE9 /* NSError+POSIX.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSError+POSIX.m"; path = "Sources/NSError+POSIX.m"; sourceTree = "<group>"; };
+		1891DD9B18D47B1000452DE9 /* NSString+ShellEscape.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSString+ShellEscape.h"; path = "Sources/NSString+ShellEscape.h"; sourceTree = "<group>"; };
+		1891DD9C18D47B1000452DE9 /* NSString+ShellEscape.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSString+ShellEscape.m"; path = "Sources/NSString+ShellEscape.m"; sourceTree = "<group>"; };
+		1891DD9D18D47B1000452DE9 /* NSXMLElement+FastAccess.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSXMLElement+FastAccess.h"; path = "Sources/NSXMLElement+FastAccess.h"; sourceTree = "<group>"; };
+		1891DD9E18D47B1000452DE9 /* NSXMLElement+FastAccess.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSXMLElement+FastAccess.m"; path = "Sources/NSXMLElement+FastAccess.m"; sourceTree = "<group>"; };
+		1891DD9F18D47B1000452DE9 /* VDAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = VDAppDelegate.h; path = Sources/VDAppDelegate.h; sourceTree = "<group>"; };
+		1891DDA018D47B1000452DE9 /* VDAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = VDAppDelegate.m; path = Sources/VDAppDelegate.m; sourceTree = "<group>"; };
+		1891DDA118D47B1000452DE9 /* VDAudioTrack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = VDAudioTrack.h; path = Sources/VDAudioTrack.h; sourceTree = "<group>"; };
+		1891DDA218D47B1000452DE9 /* VDAudioTrack.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = VDAudioTrack.m; path = Sources/VDAudioTrack.m; sourceTree = "<group>"; };
+		1891DDA318D47B1000452DE9 /* VDFilesystemDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = VDFilesystemDelegate.h; path = Sources/VDFilesystemDelegate.h; sourceTree = "<group>"; };
+		1891DDA418D47B1000452DE9 /* VDFilesystemDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = VDFilesystemDelegate.m; path = Sources/VDFilesystemDelegate.m; sourceTree = "<group>"; };
+		1891DDA518D47B1000452DE9 /* vDisk.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = vDisk.pch; path = Sources/vDisk.pch; sourceTree = "<group>"; };
+		1891DDB018D47B1C00452DE9 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = en.lproj/Credits.rtf; sourceTree = "<group>"; };
+		1891DDB218D47B1C00452DE9 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		1891DDB418D47B1C00452DE9 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		1891DDB518D47B1C00452DE9 /* vDisk.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = vDisk.icns; sourceTree = "<group>"; };
+		1891DDB618D47B1C00452DE9 /* vDisk.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = vDisk.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		1891DD5B18D479B600452DE9 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1891DD6218D479B600452DE9 /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		1891DD5518D479B600452DE9 = {
+			isa = PBXGroup;
+			children = (
+				1891DD6718D479B600452DE9 /* vDisk */,
+				1891DD6018D479B600452DE9 /* Frameworks */,
+				1891DD5F18D479B600452DE9 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		1891DD5F18D479B600452DE9 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				1891DD5E18D479B600452DE9 /* vDisk.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		1891DD6018D479B600452DE9 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1891DD6118D479B600452DE9 /* Cocoa.framework */,
+				1891DD6318D479B600452DE9 /* Other Frameworks */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		1891DD6318D479B600452DE9 /* Other Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1891DD6418D479B600452DE9 /* AppKit.framework */,
+				1891DD6518D479B600452DE9 /* CoreData.framework */,
+				1891DD6618D479B600452DE9 /* Foundation.framework */,
+			);
+			name = "Other Frameworks";
+			sourceTree = "<group>";
+		};
+		1891DD6718D479B600452DE9 /* vDisk */ = {
+			isa = PBXGroup;
+			children = (
+				1891DDAE18D47B1C00452DE9 /* Resources */,
+				1891DD9518D47AF900452DE9 /* Sources */,
+			);
+			path = vDisk;
+			sourceTree = "<group>";
+		};
+		1891DD9518D47AF900452DE9 /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				1891DD9618D47B1000452DE9 /* main.m */,
+				1891DD9718D47B1000452DE9 /* NSData+MD5.h */,
+				1891DD9818D47B1000452DE9 /* NSData+MD5.m */,
+				1891DD9918D47B1000452DE9 /* NSError+POSIX.h */,
+				1891DD9A18D47B1000452DE9 /* NSError+POSIX.m */,
+				1891DD9B18D47B1000452DE9 /* NSString+ShellEscape.h */,
+				1891DD9C18D47B1000452DE9 /* NSString+ShellEscape.m */,
+				1891DD9D18D47B1000452DE9 /* NSXMLElement+FastAccess.h */,
+				1891DD9E18D47B1000452DE9 /* NSXMLElement+FastAccess.m */,
+				1891DD9F18D47B1000452DE9 /* VDAppDelegate.h */,
+				1891DDA018D47B1000452DE9 /* VDAppDelegate.m */,
+				1891DDA118D47B1000452DE9 /* VDAudioTrack.h */,
+				1891DDA218D47B1000452DE9 /* VDAudioTrack.m */,
+				1891DDA318D47B1000452DE9 /* VDFilesystemDelegate.h */,
+				1891DDA418D47B1000452DE9 /* VDFilesystemDelegate.m */,
+				1891DDA518D47B1000452DE9 /* vDisk.pch */,
+			);
+			name = Sources;
+			sourceTree = "<group>";
+		};
+		1891DDAE18D47B1C00452DE9 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				1891DDAF18D47B1C00452DE9 /* Credits.rtf */,
+				1891DDB118D47B1C00452DE9 /* InfoPlist.strings */,
+				1891DDB318D47B1C00452DE9 /* MainMenu.xib */,
+				1891DDB518D47B1C00452DE9 /* vDisk.icns */,
+				1891DDB618D47B1C00452DE9 /* vDisk.plist */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		1891DD5D18D479B600452DE9 /* vDisk */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1891DD8F18D479B600452DE9 /* Build configuration list for PBXNativeTarget "vDisk" */;
+			buildPhases = (
+				1891DD5A18D479B600452DE9 /* Sources */,
+				1891DD5B18D479B600452DE9 /* Frameworks */,
+				1891DD5C18D479B600452DE9 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = vDisk;
+			productName = vDisk;
+			productReference = 1891DD5E18D479B600452DE9 /* vDisk.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		1891DD5618D479B600452DE9 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = VD;
+				LastUpgradeCheck = 0510;
+				ORGANIZATIONNAME = "Marat Ibadinov";
+			};
+			buildConfigurationList = 1891DD5918D479B600452DE9 /* Build configuration list for PBXProject "vDisk" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 1891DD5518D479B600452DE9;
+			productRefGroup = 1891DD5F18D479B600452DE9 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				1891DD5D18D479B600452DE9 /* vDisk */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		1891DD5C18D479B600452DE9 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1891DDB918D47B1C00452DE9 /* MainMenu.xib in Resources */,
+				1891DDBA18D47B1C00452DE9 /* vDisk.icns in Resources */,
+				1891DDBB18D47B1C00452DE9 /* vDisk.plist in Resources */,
+				1891DDB818D47B1C00452DE9 /* InfoPlist.strings in Resources */,
+				1891DDB718D47B1C00452DE9 /* Credits.rtf in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		1891DD5A18D479B600452DE9 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1891DDAB18D47B1000452DE9 /* VDAppDelegate.m in Sources */,
+				1891DDAA18D47B1000452DE9 /* NSXMLElement+FastAccess.m in Sources */,
+				1891DDAC18D47B1000452DE9 /* VDAudioTrack.m in Sources */,
+				1891DDA918D47B1000452DE9 /* NSString+ShellEscape.m in Sources */,
+				1891DDAD18D47B1000452DE9 /* VDFilesystemDelegate.m in Sources */,
+				1891DDA818D47B1000452DE9 /* NSError+POSIX.m in Sources */,
+				1891DDA618D47B1000452DE9 /* main.m in Sources */,
+				1891DDA718D47B1000452DE9 /* NSData+MD5.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		1891DDAF18D47B1C00452DE9 /* Credits.rtf */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1891DDB018D47B1C00452DE9 /* en */,
+			);
+			name = Credits.rtf;
+			sourceTree = "<group>";
+		};
+		1891DDB118D47B1C00452DE9 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1891DDB218D47B1C00452DE9 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		1891DDB318D47B1C00452DE9 /* MainMenu.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1891DDB418D47B1C00452DE9 /* en */,
+			);
+			name = MainMenu.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		1891DD8D18D479B600452DE9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		1891DD8E18D479B600452DE9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		1891DD9018D479B600452DE9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = vDisk/Sources/vDisk.pch;
+				INFOPLIST_FILE = vDisk/Resources/vDisk.plist;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		1891DD9118D479B600452DE9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = vDisk/Sources/vDisk.pch;
+				INFOPLIST_FILE = vDisk/Resources/vDisk.plist;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		1891DD5918D479B600452DE9 /* Build configuration list for PBXProject "vDisk" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1891DD8D18D479B600452DE9 /* Debug */,
+				1891DD8E18D479B600452DE9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1891DD8F18D479B600452DE9 /* Build configuration list for PBXNativeTarget "vDisk" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1891DD9018D479B600452DE9 /* Debug */,
+				1891DD9118D479B600452DE9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 1891DD5618D479B600452DE9 /* Project object */;
+}

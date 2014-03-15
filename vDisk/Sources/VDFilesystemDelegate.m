@@ -1,3 +1,27 @@
+/*
+ * vDisk
+ *
+ * Copyright (c) 2012-2014 Marat Ibadinov <ibadinov@me.com>
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the "Software"), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in
+ * all copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+ * THE SOFTWARE.
+ */
+
 #import "VDFilesystemDelegate.h"
 
 #import <OAuth2Client/NXOAuth2.h>
@@ -5,19 +29,20 @@
 #import <sys/xattr.h>
 #import <sys/stat.h>
 
-#import "VDAudioTrack.h"
 #import "NSData+MD5.h"
+#import "NSError+POSIX.h"
+#import "VDAudioTrack.h"
 
 
 NSString *const VDAccountType = @"VDAccountType";
 
 
-// NOTE: It is fine to remove the below sections that are marked as 'Optional'.
-
-// The core set of file system operations. This class will serve as the delegate
-// for GMUserFileSystemFilesystem. For more details, see the section on
-// GMUserFileSystemOperations found in the documentation at:
-// http://macfuse.googlecode.com/svn/trunk/core/sdk-objc/Documentation/index.html
+/*
+ * The core set of file system operations. This class will serve as the delegate
+ * for GMUserFileSystemFilesystem. For more details, see the section on
+ * GMUserFileSystemOperations found in the documentation at:
+ * http://macfuse.googlecode.com/svn/trunk/core/sdk-objc/Documentation/index.html
+ */
 @implementation VDFilesystemDelegate
 
 @synthesize tracks;

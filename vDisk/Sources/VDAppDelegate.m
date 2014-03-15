@@ -1,25 +1,40 @@
-//
-//  VDAppDelegate.m
-//  VK Audio Disk
-//
-//  Created by Ibadinov Marat on 11/22/12.
-//  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
-//
+/*
+ * vDisk
+ *
+ * Copyright (c) 2012-2014 Marat Ibadinov <ibadinov@me.com>
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the "Software"), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in
+ * all copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+ * THE SOFTWARE.
+ */
 
 #import "VDAppDelegate.h"
 #import "VDFilesystemDelegate.h"
 #import <OSXFUSE/OSXFUSE.h>
 #import <OAuth2Client/NXOAuth2.h>
 
-static NSString *VDClientID = nil;
-static NSString *VDSecret = nil;
+static NSString *VDClientID = @"3253114";
+static NSString *VDSecret = @"zVEeGrzteGIWyRnMI1LL";
 
 
 @implementation VDAppDelegate
 
 @synthesize window = _window;
 @synthesize webView;
-
 
 - (void)mountFilesystem
 {
@@ -31,7 +46,7 @@ static NSString *VDSecret = nil;
     [center addObserver:self selector:@selector(didUnmount:)
                    name:kGMUserFileSystemDidUnmount object:nil];
     
-    NSString* mountPath = @"/Volumes/VKAudioDisk";
+    NSString* mountPath = @"/Volumes/vDisk";
     fileSystemDelegate = [[VDFilesystemDelegate alloc] init];
     fileSystem = [[GMUserFileSystem alloc] initWithDelegate:fileSystemDelegate 
                                                isThreadSafe:YES];
@@ -40,7 +55,7 @@ static NSString *VDSecret = nil;
     NSString* volArg = [NSString stringWithFormat:@"volicon=%@",
                         [[NSBundle mainBundle] pathForResource:@"vDisk" ofType:@"icns"]];
     [options addObject:volArg];
-    [options addObject:@"volname=VK Audio Disk"];
+    [options addObject:@"volname=vDisk"];
     [options addObject:@"rdonly"];
     [fileSystem mountAtPath:mountPath withOptions:options];
 }

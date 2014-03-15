@@ -39,7 +39,11 @@
 - (id)initWithXMLElement:(NSXMLElement *)anElement;
 
 @property (readonly) NSString *filename;
+@property (readonly) NSString *artist;
+@property (readonly) NSString *title;
 @property (readonly) NSString *uri;
+@property (readonly) NSUInteger identifier;
+@property (readonly) NSUInteger duration;
 
 @property NSInteger size;
 @property NSDate    *modificationDate;

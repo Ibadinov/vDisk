@@ -110,12 +110,19 @@ VDFileList(NSDictionary *tracks)
             return;
         }
         NSXMLDocument *document = [[NSXMLDocument alloc] initWithData:data options:0 error:nil];
-        tracks = [[NSMutableDictionary alloc] initWithCapacity:[[document rootElement] childCount]];
-        
+        NSMutableDictionary *result = [NSMutableDictionary dictionaryWithCapacity:[[document rootElement] childCount]];
+
+        NSUInteger updatedCount = 0;
         for (NSXMLElement *audio in [[document rootElement] children]) {
             VDAudioTrack *track = [[VDAudioTrack alloc] initWithXMLElement:audio];
-            [tracks setObject:track forKey:[@"/" stringByAppendingPathComponent:[track filename]]];
+            NSString *path = [@"/" stringByAppendingPathComponent:[track filename]];
+            VDAudioTrack *old = [tracks objectForKey:path];
+            /* prefer old objects with downloaded attributes over the new ones */
+            [result setObject:([track isEqual:old] ? old : track) forKey:path];
+            updatedCount += ![track isEqual:old];
         }
+        NSLog(@"Updated tracks, found %tu new", updatedCount);
+        tracks = result;
         checksum = dataChecksum;
     }
 }

@@ -37,7 +37,11 @@ VDPrepareName(NSString *name)
 
 @implementation VDAudioTrack
 
+@synthesize artist;
+@synthesize title;
 @synthesize uri;
+@synthesize identifier;
+@synthesize duration;
 @synthesize size;
 @synthesize modificationDate;
 
@@ -61,6 +65,24 @@ VDPrepareName(NSString *name)
     /* replace “colon” (0x003A) with “modifier letter colon” (0xA789)   */
     /* replace “slash” with “colon” (Finder displays it as “slash”)     */
     return [[filename stringByReplacingOccurrencesOfString:@":" withString:@"꞉"] stringByReplacingOccurrencesOfString:@"/" withString:@":"];
+}
+
+- (BOOL)isEqual:(id)anObject
+{
+    if (![anObject isKindOfClass:[self class]]) {
+        return NO;
+    }
+    VDAudioTrack *object = anObject;
+    return  [object identifier] == identifier &&
+            [object duration] == duration &&
+            [artist isEqual:[object artist]] &&
+            [title isEqual:[object title]] &&
+            [uri isEqual:[object uri]];
+}
+
+- (NSUInteger)hash
+{
+    return identifier;
 }
 
 @end

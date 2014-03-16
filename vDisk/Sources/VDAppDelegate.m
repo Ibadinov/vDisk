@@ -64,7 +64,7 @@ static NSString *VDSecret = @"zVEeGrzteGIWyRnMI1LL";
 {
     [[NXOAuth2AccountStore sharedStore] setClientID:VDClientID
                                              secret:VDSecret
-                                   authorizationURL:[NSURL URLWithString:@"http://api.vk.com/oauth/authorize?scope=audio&display=popup"]
+                                   authorizationURL:[NSURL URLWithString:@"http://api.vk.com/oauth/authorize?scope=audio,notes,photos,video&display=popup"]
                                            tokenURL:[NSURL URLWithString:@"https://api.vk.com/oauth/access_token"]
                                         redirectURL:[NSURL URLWithString:@"http://api.vk.com/blank.html"]
                                      forAccountType:VDAccountType];

@@ -39,7 +39,7 @@ VDAPIAccountGet()
 NSData *
 VDAPIPerformMethod(NSString *method, NSDictionary *parameters, NSError **error)
 {
-    NSString *uri = [NSString stringWithFormat:@"https://api.vk.com/method/%@.xml", method];
+    NSString *uri = [NSString stringWithFormat:@"https://api.vk.com/method/%@", method];
 
     NSMutableDictionary *allParams;
     if (parameters) {
@@ -63,67 +63,4 @@ NSString *
 VDDecodeXMLEntities(NSString *string)
 {
     return (__bridge NSString *)CFXMLCreateStringByUnescapingEntities(kCFAllocatorDefault, (__bridge CFStringRef)string, NULL);
-}
-
-
-NSDictionary *
-VDAttributesOfFileAtURL(NSString *url, NSError **error)
-{
-    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:url]];
-    [request setHTTPMethod:@"HEAD"];
-
-    NSHTTPURLResponse *response = nil;
-    NSError *underlyingError = nil;
-    [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&underlyingError];
-    if (!response) {
-        NSLog(@"Failed to retrieve attribtes, error: %@", underlyingError);
-        if (error) {
-            *error = underlyingError;
-        }
-        return nil;
-    }
-
-    NSNumber *size = [NSNumber numberWithLongLong:[response expectedContentLength]];
-    NSDate *lastModified = [NSDate dateWithNaturalLanguageString:[[response allHeaderFields] objectForKey:@"Last-Modified"]];
-    lastModified = lastModified ? lastModified : [NSDate date];
-
-    return [NSDictionary dictionaryWithObjectsAndKeys:
-            size, NSFileSize,
-            lastModified, NSFileCreationDate,
-            lastModified, NSFileModificationDate,
-            nil];
-}
-
-
-size_t
-VDReadFileAtURL(NSString *url, char *buffer, size_t size, off_t offset, NSError **error)
-{
-    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:url]];
-    NSString *range = [NSString stringWithFormat:@"bytes=%zd-%zd", offset, (offset + size - 1)];
-    [request addValue:range forHTTPHeaderField:@"Range"];
-    NSLog(@"Requesting file data using URI: %@", url);
-
-    NSHTTPURLResponse *response;
-    [request setCachePolicy:NSURLRequestReloadRevalidatingCacheData];
-    NSError *underlyingError = nil;
-    NSData *data = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&underlyingError];
-
-    if (!data) {
-        NSLog(@"Failed to retrieve data, error: %@", underlyingError);
-        if (error) {
-            *error = underlyingError;
-        }
-        return -1;
-    }
-
-    NSLog(@"Requested range: %@", range);
-    NSLog(@"Received range: %@", [[response allHeaderFields] objectForKey:@"Content-Range"]);
-
-    size_t result = [data length];
-    result = result > size ? size : result;
-    if (data) {
-        memcpy(buffer, [data bytes], result);
-    }
-
-    return result;
 }

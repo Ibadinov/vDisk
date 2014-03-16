@@ -76,9 +76,9 @@ SetError(NSError **error, NSError *value)
 
 - (NSArray *)contentsOfDirectoryAtPath:(NSString *)path error:(NSError **)error
 {
-    NSLog(@"listdir: %@", path);
+//    NSLog(@"listdir: %@", path);
     VDNode *node = [self getFileSystemNodeAtPath:path];
-    NSLog(@"Node: %@", node);
+//    NSLog(@"Node: %@", node);
     if (!node) {
         SetError(error, [NSError errorWithPOSIXCode:ENOENT]);
         return nil;
@@ -97,9 +97,9 @@ SetError(NSError **error, NSError *value)
                                 userData:(id)userData
                                    error:(NSError **)error
 {
-    NSLog(@"getattrs: %@", path);
+//    NSLog(@"getattrs: %@", path);
     VDNode *node = [self getFileSystemNodeAtPath:path];
-    NSLog(@"Node: %@", node);
+//    NSLog(@"Node: %@", node);
     if (!node) {
         NSLog(@"No entry at path: %@", path);
         SetError(error, [NSError errorWithPOSIXCode:ENOENT]);

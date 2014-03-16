@@ -40,7 +40,28 @@
 
 - (NSDictionary *)retrieveAttributes
 {
-    return VDAttributesOfFileAtURL(url, nil);
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:url]];
+    [request setHTTPMethod:@"HEAD"];
+
+    NSHTTPURLResponse *response = nil;
+    NSError *underlyingError = nil;
+    [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&underlyingError];
+    if (!response) {
+        NSLog(@"Failed to retrieve attribtes, error: %@", underlyingError);
+        return nil;
+    }
+
+    NSNumber *size = [NSNumber numberWithLongLong:[response expectedContentLength]];
+    NSDate *lastModified = [NSDate dateWithNaturalLanguageString:[[response allHeaderFields] objectForKey:@"Last-Modified"]];
+    lastModified = lastModified ? lastModified : [NSDate date];
+
+    NSMutableDictionary *result = [NSMutableDictionary dictionaryWithObjectsAndKeys:
+                                   size, NSFileSize,
+                                   lastModified, NSFileCreationDate,
+                                   lastModified, NSFileModificationDate,
+                                   nil];
+    [result addEntriesFromDictionary:[super retrieveAttributes]];
+    return result;
 }
 
 - (size_t)readDataIntoBuffer:(char *)buffer
@@ -48,7 +69,43 @@
                       offset:(off_t)offset
                        error:(NSError *__autoreleasing *)error
 {
-    return VDReadFileAtURL(url, buffer, size, offset, error);
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:url]];
+    NSString *range = [NSString stringWithFormat:@"bytes=%zd-%zd", offset, (offset + size - 1)];
+    [request addValue:range forHTTPHeaderField:@"Range"];
+    NSLog(@"Requesting file data using URI: %@", url);
+
+    NSHTTPURLResponse *response;
+    [request setCachePolicy:NSURLRequestReloadRevalidatingCacheData];
+    NSError *underlyingError = nil;
+    NSData *data = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&underlyingError];
+
+    if (!data) {
+        NSLog(@"Failed to retrieve data, error: %@", underlyingError);
+        if (error) {
+            *error = underlyingError;
+        }
+        return -1;
+    }
+
+    NSLog(@"Requested range: %@/%@", range, [[self getAttributes] objectForKey:NSFileSize]);
+    NSString *receivedRange = [[response allHeaderFields] objectForKey:@"Content-Range"];
+    NSLog(@"Received range: %@", receivedRange);
+    NSLog(@"Data length: %tu <=> %tu", [data length], size);
+
+    NSUInteger shift = 0;
+    NSUInteger received = [data length];
+    if (!receivedRange) {
+        /* we received file from the start */
+        shift = offset;
+        if (shift + size > received) {
+            received = shift < received ? received - shift : 0;
+        } else
+            received = size;
+    }
+    if (data) {
+        memcpy(buffer, [data bytes] + shift, received);
+    }
+    return received;
 }
 
 - (BOOL)isEqual:(id)object

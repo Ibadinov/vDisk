@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		181ACD9C18D6087B00ADB329 /* VDImageDirectory.m in Sources */ = {isa = PBXBuildFile; fileRef = 181ACD9B18D6087B00ADB329 /* VDImageDirectory.m */; };
+		181ACDA018D6108B00ADB329 /* VDAlbumDirectory.m in Sources */ = {isa = PBXBuildFile; fileRef = 181ACD9F18D6108B00ADB329 /* VDAlbumDirectory.m */; };
 		1891DD6218D479B600452DE9 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1891DD6118D479B600452DE9 /* Cocoa.framework */; };
 		1891DDA618D47B1000452DE9 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1891DD9618D47B1000452DE9 /* main.m */; };
 		1891DDA818D47B1000452DE9 /* NSError+POSIX.m in Sources */ = {isa = PBXBuildFile; fileRef = 1891DD9A18D47B1000452DE9 /* NSError+POSIX.m */; };
@@ -56,6 +58,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		181ACD9A18D6087B00ADB329 /* VDImageDirectory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = VDImageDirectory.h; path = Sources/Nodes/VDImageDirectory.h; sourceTree = "<group>"; };
+		181ACD9B18D6087B00ADB329 /* VDImageDirectory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = VDImageDirectory.m; path = Sources/Nodes/VDImageDirectory.m; sourceTree = "<group>"; };
+		181ACD9E18D6108B00ADB329 /* VDAlbumDirectory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = VDAlbumDirectory.h; path = Sources/Nodes/VDAlbumDirectory.h; sourceTree = "<group>"; };
+		181ACD9F18D6108B00ADB329 /* VDAlbumDirectory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = VDAlbumDirectory.m; path = Sources/Nodes/VDAlbumDirectory.m; sourceTree = "<group>"; };
 		1891DD5E18D479B600452DE9 /* vDisk.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = vDisk.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1891DD6118D479B600452DE9 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		1891DD6418D479B600452DE9 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -218,6 +224,10 @@
 				1891DDDD18D51B4100452DE9 /* VDDirectory.m */,
 				1891DDDF18D51C2E00452DE9 /* VDRemoteFile.h */,
 				1891DDE018D51C2E00452DE9 /* VDRemoteFile.m */,
+				181ACD9E18D6108B00ADB329 /* VDAlbumDirectory.h */,
+				181ACD9F18D6108B00ADB329 /* VDAlbumDirectory.m */,
+				181ACD9A18D6087B00ADB329 /* VDImageDirectory.h */,
+				181ACD9B18D6087B00ADB329 /* VDImageDirectory.m */,
 				1891DDE218D51E0B00452DE9 /* VDMusicDirectory.h */,
 				1891DDE318D51E0B00452DE9 /* VDMusicDirectory.m */,
 				1891DDE518D51F1300452DE9 /* VDRootDirectory.h */,
@@ -318,6 +328,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1891DDE418D51E0B00452DE9 /* VDMusicDirectory.m in Sources */,
+				181ACD9C18D6087B00ADB329 /* VDImageDirectory.m in Sources */,
 				1891DDD818D5180800452DE9 /* VDFile.m in Sources */,
 				1891DDDB18D518BC00452DE9 /* NSObject+Abstract.m in Sources */,
 				1891DDDE18D51B4100452DE9 /* VDDirectory.m in Sources */,
@@ -329,6 +340,7 @@
 				1891DDAD18D47B1000452DE9 /* VDFilesystemDelegate.m in Sources */,
 				1891DDA818D47B1000452DE9 /* NSError+POSIX.m in Sources */,
 				1891DDA618D47B1000452DE9 /* main.m in Sources */,
+				181ACDA018D6108B00ADB329 /* VDAlbumDirectory.m in Sources */,
 				1891DDD518D5179F00452DE9 /* VDNode.m in Sources */,
 				1891DDE718D51F1300452DE9 /* VDRootDirectory.m in Sources */,
 			);

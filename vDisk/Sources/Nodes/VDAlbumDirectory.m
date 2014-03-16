@@ -22,18 +22,28 @@
  * THE SOFTWARE.
  */
 
-#import "VDMusicDirectory.h"
+#import "VDAlbumDirectory.h"
 #import "VDRemoteFile.h"
 #import "VDAPI.h"
 #import "NSXMLElement+FastAccess.h"
 
 
-@implementation VDMusicDirectory
+@implementation VDAlbumDirectory
+
+@synthesize identifier;
+
+- (id)initWithName:(NSString *)aName identifier:(NSString *)anIdentifier
+{
+    if (self = [super initWithName:aName]) {
+        identifier = anIdentifier;
+    }
+    return self;
+}
 
 - (NSDictionary *)retrieveContents
 {
     NSError *error = nil;
-    NSData *data = VDAPIPerformMethod(@"audio.get.xml", nil, &error);
+    NSData *data = VDAPIPerformMethod([NSString stringWithFormat:@"photos.get.xml?album_id=%@", identifier], nil, &error);
     if (!data) {
         NSLog(@"Failed to retrive list of tracks, error: %@", error);
         return nil;
@@ -45,12 +55,10 @@
     }
 
     NSMutableDictionary *result = [NSMutableDictionary dictionaryWithCapacity:[[document rootElement] childCount]];
-    for (NSXMLElement *audio in [[document rootElement] children]) {
-        NSString *artist    = VDDecodeXMLEntities([audio contentOfElementWithName:@"artist"]);
-        NSString *title     = VDDecodeXMLEntities([audio contentOfElementWithName:@"title"]);
-        NSString *url       = VDDecodeXMLEntities([audio contentOfElementWithName:@"url"]);
+    for (NSXMLElement *element in [[document rootElement] children]) {
+        NSString *url = VDDecodeXMLEntities([element contentOfElementWithName:@"src_big"]);
 
-        NSString *filename = [NSString stringWithFormat:@"%@ - %@.mp3", artist, title];
+        NSString *filename = [[NSURL URLWithString:url] lastPathComponent];
         VDRemoteFile *file = [[VDRemoteFile alloc] initWithName:filename URL:url];
         [result setObject:file forKey:[file name]]; /* use cleaned name instead of raw */
     }

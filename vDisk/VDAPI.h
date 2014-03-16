@@ -30,9 +30,3 @@ VDAPIPerformMethod(NSString *method, NSDictionary *parameters, NSError **error);
 
 NSString *
 VDDecodeXMLEntities(NSString *string);
-
-NSDictionary *
-VDAttributesOfFileAtURL(NSString *url, NSError **error);
-
-size_t
-VDReadFileAtURL(NSString *url, char *buffer, size_t size, off_t offset, NSError **error);

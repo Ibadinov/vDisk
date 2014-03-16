@@ -22,22 +22,15 @@
  * THE SOFTWARE.
  */
 
-#import "VDRootDirectory.h"
-#import "VDImageDirectory.h"
-#import "VDMusicDirectory.h"
+#import "VDDirectory.h"
 
 
-@implementation VDRootDirectory
-
-- (NSDictionary *)retrieveContents
-{
-    NSMutableDictionary *result = [NSMutableDictionary dictionary];
-    VDDirectory *directory;
-    directory = [[VDMusicDirectory alloc] initWithName:@"Music"];
-    [result setObject:directory forKey:[directory name]];
-    directory = [[VDImageDirectory alloc] initWithName:@"Photos"];
-    [result setObject:directory forKey:[directory name]];
-    return result;
+@interface VDAlbumDirectory : VDDirectory {
+    __strong NSString *identifier;
 }
+
+@property (readonly) NSString *identifier;
+
+- (id)initWithName:(NSString *)name identifier:(NSString *)identifier;
 
 @end

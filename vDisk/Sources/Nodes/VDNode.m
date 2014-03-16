@@ -64,7 +64,7 @@ VDGetFinderFriendlyFilename(NSString *filename)
 - (NSDictionary *)getAttributes
 {
     if (!attributes) {
-        NSLog(@"Requesting attributes of node: %@", self);
+        NSLog(@"Requesting attributes of node: %@\nName: %@", self, name);
         NSMutableDictionary *retrieved = [[self retrieveAttributes] mutableCopy];
         @synchronized (self) {
             [retrieved setObject:[NSNumber numberWithInt:geteuid()] forKey:NSFileOwnerAccountID];

@@ -22,18 +22,18 @@
  * THE SOFTWARE.
  */
 
-#import "VDMusicDirectory.h"
-#import "VDRemoteFile.h"
+#import "VDImageDirectory.h"
+#import "VDAlbumDirectory.h"
 #import "VDAPI.h"
 #import "NSXMLElement+FastAccess.h"
 
 
-@implementation VDMusicDirectory
+@implementation VDImageDirectory
 
 - (NSDictionary *)retrieveContents
 {
     NSError *error = nil;
-    NSData *data = VDAPIPerformMethod(@"audio.get.xml", nil, &error);
+    NSData *data = VDAPIPerformMethod(@"photos.getAlbums.xml", nil, &error);
     if (!data) {
         NSLog(@"Failed to retrive list of tracks, error: %@", error);
         return nil;
@@ -45,14 +45,17 @@
     }
 
     NSMutableDictionary *result = [NSMutableDictionary dictionaryWithCapacity:[[document rootElement] childCount]];
-    for (NSXMLElement *audio in [[document rootElement] children]) {
-        NSString *artist    = VDDecodeXMLEntities([audio contentOfElementWithName:@"artist"]);
-        NSString *title     = VDDecodeXMLEntities([audio contentOfElementWithName:@"title"]);
-        NSString *url       = VDDecodeXMLEntities([audio contentOfElementWithName:@"url"]);
+    for (NSXMLElement *element in [[document rootElement] children]) {
+        NSString *identifier    = VDDecodeXMLEntities([element contentOfElementWithName:@"aid"]);
+        NSString *title         = VDDecodeXMLEntities([element contentOfElementWithName:@"title"]);
 
-        NSString *filename = [NSString stringWithFormat:@"%@ - %@.mp3", artist, title];
-        VDRemoteFile *file = [[VDRemoteFile alloc] initWithName:filename URL:url];
-        [result setObject:file forKey:[file name]]; /* use cleaned name instead of raw */
+        VDAlbumDirectory *album = [[VDAlbumDirectory alloc] initWithName:title identifier:identifier];
+        [result setObject:album forKey:[album name]]; /* use cleaned name instead of raw */
+    }
+    for (id title in @[@"Profile", @"Wall", @"Saved"]) {
+        NSString *identifier = [title lowercaseString];
+        VDAlbumDirectory *album = [[VDAlbumDirectory alloc] initWithName:title identifier:identifier];
+        [result setObject:album forKey:[album name]];
     }
     return result;
 }

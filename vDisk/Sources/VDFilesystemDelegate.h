@@ -24,22 +24,14 @@
 
 #import <Foundation/Foundation.h>
 
-#define VDFS_SIMPLE_FILE_CONTENTS 0
-
-
 extern NSString *const VDAccountType;
 
 
 @interface VDFilesystemDelegate : NSObject  {
-    __strong NSMutableDictionary *tracks;
-    __strong NSString            *checksum;
+    __strong id root;
 }
 
 - (id)init;
-
-#pragma mark Properties
-
-@property (readonly) NSDictionary *tracks;
 
 #pragma mark Directory Contents
 
@@ -51,17 +43,10 @@ extern NSString *const VDAccountType;
                                 userData:(id)userData
                                    error:(NSError **)error;
 
-- (NSDictionary *)attributesOfFileSystemForPath:(NSString *)path
-                                          error:(NSError **)error;
+- (NSDictionary *)attributesOfFileSystemForPath:(NSString *)path error:(NSError **)error;
 
 #pragma mark File Contents
 
-
-#if VDFS_SIMPLE_FILE_CONTENTS
-
-- (NSData *)contentsAtPath:(NSString *)path;
-
-#else /* VDFS_SIMPLE_FILE_CONTENTS */
 
 - (BOOL)openFileAtPath:(NSString *)path
                   mode:(int)mode
@@ -77,12 +62,9 @@ extern NSString *const VDAccountType;
                offset:(off_t)offset
                 error:(NSError **)error;
 
-#endif  /* VDFS_SIMPLE_FILE_CONTENTS */
-
 #pragma mark Symbolic Links (Optional)
 
-- (NSString *)destinationOfSymbolicLinkAtPath:(NSString *)path
-                                        error:(NSError **)error;
+- (NSString *)destinationOfSymbolicLinkAtPath:(NSString *)path error:(NSError **)error;
 
 #pragma mark Extended Attributes (Optional)
 
@@ -95,10 +77,8 @@ extern NSString *const VDAccountType;
 
 #pragma mark FinderInfo and ResourceFork (Optional)
 
-- (NSDictionary *)finderAttributesAtPath:(NSString *)path
-                                   error:(NSError **)error;
+- (NSDictionary *)finderAttributesAtPath:(NSString *)path error:(NSError **)error;
 
-- (NSDictionary *)resourceAttributesAtPath:(NSString *)path
-                                     error:(NSError **)error;
+- (NSDictionary *)resourceAttributesAtPath:(NSString *)path error:(NSError **)error;
 
 @end

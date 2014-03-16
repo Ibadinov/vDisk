@@ -22,11 +22,20 @@
  * THE SOFTWARE.
  */
 
-#import <Foundation/NSData.h>
+#import <Foundation/Foundation.h>
 
 
-@interface NSData (MD5)
+@interface VDNode : NSObject {
+    __strong NSString *name;
+    __strong NSDictionary *attributes;
+}
 
-- (NSString *)md5;
+- (id)initWithName:(NSString *)name;
+
+- (NSString *)name;
+- (NSString *)type;
+
+- (NSDictionary *)getAttributes;
+- (NSDictionary *)retrieveAttributes;
 
 @end

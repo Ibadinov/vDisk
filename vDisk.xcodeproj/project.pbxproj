@@ -9,12 +9,10 @@
 /* Begin PBXBuildFile section */
 		1891DD6218D479B600452DE9 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1891DD6118D479B600452DE9 /* Cocoa.framework */; };
 		1891DDA618D47B1000452DE9 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1891DD9618D47B1000452DE9 /* main.m */; };
-		1891DDA718D47B1000452DE9 /* NSData+MD5.m in Sources */ = {isa = PBXBuildFile; fileRef = 1891DD9818D47B1000452DE9 /* NSData+MD5.m */; };
 		1891DDA818D47B1000452DE9 /* NSError+POSIX.m in Sources */ = {isa = PBXBuildFile; fileRef = 1891DD9A18D47B1000452DE9 /* NSError+POSIX.m */; };
 		1891DDA918D47B1000452DE9 /* NSString+ShellEscape.m in Sources */ = {isa = PBXBuildFile; fileRef = 1891DD9C18D47B1000452DE9 /* NSString+ShellEscape.m */; };
 		1891DDAA18D47B1000452DE9 /* NSXMLElement+FastAccess.m in Sources */ = {isa = PBXBuildFile; fileRef = 1891DD9E18D47B1000452DE9 /* NSXMLElement+FastAccess.m */; };
 		1891DDAB18D47B1000452DE9 /* VDAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1891DDA018D47B1000452DE9 /* VDAppDelegate.m */; };
-		1891DDAC18D47B1000452DE9 /* VDAudioTrack.m in Sources */ = {isa = PBXBuildFile; fileRef = 1891DDA218D47B1000452DE9 /* VDAudioTrack.m */; };
 		1891DDAD18D47B1000452DE9 /* VDFilesystemDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1891DDA418D47B1000452DE9 /* VDFilesystemDelegate.m */; };
 		1891DDB718D47B1C00452DE9 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 1891DDAF18D47B1C00452DE9 /* Credits.rtf */; };
 		1891DDB818D47B1C00452DE9 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1891DDB118D47B1C00452DE9 /* InfoPlist.strings */; };
@@ -23,6 +21,14 @@
 		1891DDBD18D47FFD00452DE9 /* OSXFUSE.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1891DDBC18D47FFD00452DE9 /* OSXFUSE.framework */; };
 		1891DDC718D4818400452DE9 /* OAuth2Client.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1891DDC418D480CE00452DE9 /* OAuth2Client.framework */; };
 		1891DDCB18D4871F00452DE9 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1891DDCA18D4871F00452DE9 /* WebKit.framework */; };
+		1891DDD118D4F2AD00452DE9 /* VDAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 1891DDD018D4F2AD00452DE9 /* VDAPI.m */; };
+		1891DDD518D5179F00452DE9 /* VDNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 1891DDD418D5179F00452DE9 /* VDNode.m */; };
+		1891DDD818D5180800452DE9 /* VDFile.m in Sources */ = {isa = PBXBuildFile; fileRef = 1891DDD718D5180800452DE9 /* VDFile.m */; };
+		1891DDDB18D518BC00452DE9 /* NSObject+Abstract.m in Sources */ = {isa = PBXBuildFile; fileRef = 1891DDDA18D518BC00452DE9 /* NSObject+Abstract.m */; };
+		1891DDDE18D51B4100452DE9 /* VDDirectory.m in Sources */ = {isa = PBXBuildFile; fileRef = 1891DDDD18D51B4100452DE9 /* VDDirectory.m */; };
+		1891DDE118D51C2E00452DE9 /* VDRemoteFile.m in Sources */ = {isa = PBXBuildFile; fileRef = 1891DDE018D51C2E00452DE9 /* VDRemoteFile.m */; };
+		1891DDE418D51E0B00452DE9 /* VDMusicDirectory.m in Sources */ = {isa = PBXBuildFile; fileRef = 1891DDE318D51E0B00452DE9 /* VDMusicDirectory.m */; };
+		1891DDE718D51F1300452DE9 /* VDRootDirectory.m in Sources */ = {isa = PBXBuildFile; fileRef = 1891DDE618D51F1300452DE9 /* VDRootDirectory.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,8 +62,6 @@
 		1891DD6518D479B600452DE9 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		1891DD6618D479B600452DE9 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		1891DD9618D47B1000452DE9 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = Sources/main.m; sourceTree = "<group>"; };
-		1891DD9718D47B1000452DE9 /* NSData+MD5.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSData+MD5.h"; path = "Sources/NSData+MD5.h"; sourceTree = "<group>"; };
-		1891DD9818D47B1000452DE9 /* NSData+MD5.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSData+MD5.m"; path = "Sources/NSData+MD5.m"; sourceTree = "<group>"; };
 		1891DD9918D47B1000452DE9 /* NSError+POSIX.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSError+POSIX.h"; path = "Sources/NSError+POSIX.h"; sourceTree = "<group>"; };
 		1891DD9A18D47B1000452DE9 /* NSError+POSIX.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSError+POSIX.m"; path = "Sources/NSError+POSIX.m"; sourceTree = "<group>"; };
 		1891DD9B18D47B1000452DE9 /* NSString+ShellEscape.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSString+ShellEscape.h"; path = "Sources/NSString+ShellEscape.h"; sourceTree = "<group>"; };
@@ -66,8 +70,6 @@
 		1891DD9E18D47B1000452DE9 /* NSXMLElement+FastAccess.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSXMLElement+FastAccess.m"; path = "Sources/NSXMLElement+FastAccess.m"; sourceTree = "<group>"; };
 		1891DD9F18D47B1000452DE9 /* VDAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = VDAppDelegate.h; path = Sources/VDAppDelegate.h; sourceTree = "<group>"; };
 		1891DDA018D47B1000452DE9 /* VDAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = VDAppDelegate.m; path = Sources/VDAppDelegate.m; sourceTree = "<group>"; };
-		1891DDA118D47B1000452DE9 /* VDAudioTrack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = VDAudioTrack.h; path = Sources/VDAudioTrack.h; sourceTree = "<group>"; };
-		1891DDA218D47B1000452DE9 /* VDAudioTrack.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = VDAudioTrack.m; path = Sources/VDAudioTrack.m; sourceTree = "<group>"; };
 		1891DDA318D47B1000452DE9 /* VDFilesystemDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = VDFilesystemDelegate.h; path = Sources/VDFilesystemDelegate.h; sourceTree = "<group>"; };
 		1891DDA418D47B1000452DE9 /* VDFilesystemDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = VDFilesystemDelegate.m; path = Sources/VDFilesystemDelegate.m; sourceTree = "<group>"; };
 		1891DDA518D47B1000452DE9 /* vDisk.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = vDisk.pch; path = Sources/vDisk.pch; sourceTree = "<group>"; };
@@ -79,6 +81,22 @@
 		1891DDBC18D47FFD00452DE9 /* OSXFUSE.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OSXFUSE.framework; path = ../../../../../../Library/Frameworks/OSXFUSE.framework; sourceTree = "<group>"; };
 		1891DDBE18D480CD00452DE9 /* OAuth2Client.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = OAuth2Client.xcodeproj; path = OAuth2Client/OAuth2Client.xcodeproj; sourceTree = "<group>"; };
 		1891DDCA18D4871F00452DE9 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
+		1891DDCF18D4F2AD00452DE9 /* VDAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VDAPI.h; sourceTree = "<group>"; };
+		1891DDD018D4F2AD00452DE9 /* VDAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VDAPI.m; sourceTree = "<group>"; };
+		1891DDD318D5179F00452DE9 /* VDNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = VDNode.h; path = Sources/Nodes/VDNode.h; sourceTree = "<group>"; };
+		1891DDD418D5179F00452DE9 /* VDNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = VDNode.m; path = Sources/Nodes/VDNode.m; sourceTree = "<group>"; };
+		1891DDD618D5180800452DE9 /* VDFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = VDFile.h; path = Sources/Nodes/VDFile.h; sourceTree = "<group>"; };
+		1891DDD718D5180800452DE9 /* VDFile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = VDFile.m; path = Sources/Nodes/VDFile.m; sourceTree = "<group>"; };
+		1891DDD918D518BC00452DE9 /* NSObject+Abstract.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSObject+Abstract.h"; path = "Sources/NSObject+Abstract.h"; sourceTree = "<group>"; };
+		1891DDDA18D518BC00452DE9 /* NSObject+Abstract.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSObject+Abstract.m"; path = "Sources/NSObject+Abstract.m"; sourceTree = "<group>"; };
+		1891DDDC18D51B4100452DE9 /* VDDirectory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = VDDirectory.h; path = Sources/Nodes/VDDirectory.h; sourceTree = "<group>"; };
+		1891DDDD18D51B4100452DE9 /* VDDirectory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = VDDirectory.m; path = Sources/Nodes/VDDirectory.m; sourceTree = "<group>"; };
+		1891DDDF18D51C2E00452DE9 /* VDRemoteFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = VDRemoteFile.h; path = Sources/Nodes/VDRemoteFile.h; sourceTree = "<group>"; };
+		1891DDE018D51C2E00452DE9 /* VDRemoteFile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = VDRemoteFile.m; path = Sources/Nodes/VDRemoteFile.m; sourceTree = "<group>"; };
+		1891DDE218D51E0B00452DE9 /* VDMusicDirectory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = VDMusicDirectory.h; path = Sources/Nodes/VDMusicDirectory.h; sourceTree = "<group>"; };
+		1891DDE318D51E0B00452DE9 /* VDMusicDirectory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = VDMusicDirectory.m; path = Sources/Nodes/VDMusicDirectory.m; sourceTree = "<group>"; };
+		1891DDE518D51F1300452DE9 /* VDRootDirectory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = VDRootDirectory.h; path = Sources/Nodes/VDRootDirectory.h; sourceTree = "<group>"; };
+		1891DDE618D51F1300452DE9 /* VDRootDirectory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = VDRootDirectory.m; path = Sources/Nodes/VDRootDirectory.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -147,19 +165,20 @@
 		1891DD9518D47AF900452DE9 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				1891DDD218D5177800452DE9 /* Nodes */,
 				1891DD9618D47B1000452DE9 /* main.m */,
-				1891DD9718D47B1000452DE9 /* NSData+MD5.h */,
-				1891DD9818D47B1000452DE9 /* NSData+MD5.m */,
 				1891DD9918D47B1000452DE9 /* NSError+POSIX.h */,
 				1891DD9A18D47B1000452DE9 /* NSError+POSIX.m */,
+				1891DDD918D518BC00452DE9 /* NSObject+Abstract.h */,
+				1891DDDA18D518BC00452DE9 /* NSObject+Abstract.m */,
 				1891DD9B18D47B1000452DE9 /* NSString+ShellEscape.h */,
 				1891DD9C18D47B1000452DE9 /* NSString+ShellEscape.m */,
 				1891DD9D18D47B1000452DE9 /* NSXMLElement+FastAccess.h */,
 				1891DD9E18D47B1000452DE9 /* NSXMLElement+FastAccess.m */,
+				1891DDCF18D4F2AD00452DE9 /* VDAPI.h */,
+				1891DDD018D4F2AD00452DE9 /* VDAPI.m */,
 				1891DD9F18D47B1000452DE9 /* VDAppDelegate.h */,
 				1891DDA018D47B1000452DE9 /* VDAppDelegate.m */,
-				1891DDA118D47B1000452DE9 /* VDAudioTrack.h */,
-				1891DDA218D47B1000452DE9 /* VDAudioTrack.m */,
 				1891DDA318D47B1000452DE9 /* VDFilesystemDelegate.h */,
 				1891DDA418D47B1000452DE9 /* VDFilesystemDelegate.m */,
 				1891DDA518D47B1000452DE9 /* vDisk.pch */,
@@ -186,6 +205,25 @@
 				1891DDC618D480CE00452DE9 /* libOAuth2Client.a */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		1891DDD218D5177800452DE9 /* Nodes */ = {
+			isa = PBXGroup;
+			children = (
+				1891DDD318D5179F00452DE9 /* VDNode.h */,
+				1891DDD418D5179F00452DE9 /* VDNode.m */,
+				1891DDD618D5180800452DE9 /* VDFile.h */,
+				1891DDD718D5180800452DE9 /* VDFile.m */,
+				1891DDDC18D51B4100452DE9 /* VDDirectory.h */,
+				1891DDDD18D51B4100452DE9 /* VDDirectory.m */,
+				1891DDDF18D51C2E00452DE9 /* VDRemoteFile.h */,
+				1891DDE018D51C2E00452DE9 /* VDRemoteFile.m */,
+				1891DDE218D51E0B00452DE9 /* VDMusicDirectory.h */,
+				1891DDE318D51E0B00452DE9 /* VDMusicDirectory.m */,
+				1891DDE518D51F1300452DE9 /* VDRootDirectory.h */,
+				1891DDE618D51F1300452DE9 /* VDRootDirectory.m */,
+			);
+			name = Nodes;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -279,14 +317,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1891DDE418D51E0B00452DE9 /* VDMusicDirectory.m in Sources */,
+				1891DDD818D5180800452DE9 /* VDFile.m in Sources */,
+				1891DDDB18D518BC00452DE9 /* NSObject+Abstract.m in Sources */,
+				1891DDDE18D51B4100452DE9 /* VDDirectory.m in Sources */,
+				1891DDE118D51C2E00452DE9 /* VDRemoteFile.m in Sources */,
 				1891DDAB18D47B1000452DE9 /* VDAppDelegate.m in Sources */,
 				1891DDAA18D47B1000452DE9 /* NSXMLElement+FastAccess.m in Sources */,
-				1891DDAC18D47B1000452DE9 /* VDAudioTrack.m in Sources */,
+				1891DDD118D4F2AD00452DE9 /* VDAPI.m in Sources */,
 				1891DDA918D47B1000452DE9 /* NSString+ShellEscape.m in Sources */,
 				1891DDAD18D47B1000452DE9 /* VDFilesystemDelegate.m in Sources */,
 				1891DDA818D47B1000452DE9 /* NSError+POSIX.m in Sources */,
 				1891DDA618D47B1000452DE9 /* main.m in Sources */,
-				1891DDA718D47B1000452DE9 /* NSData+MD5.m in Sources */,
+				1891DDD518D5179F00452DE9 /* VDNode.m in Sources */,
+				1891DDE718D51F1300452DE9 /* VDRootDirectory.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -22,30 +22,10 @@
  * THE SOFTWARE.
  */
 
-#import <Foundation/Foundation.h>
+#import "VDDirectory.h"
 
 
-@interface VDAudioTrack : NSObject {
-@private
-    __strong NSString   *artist;
-    __strong NSString   *title;
-    __strong NSString   *uri;
-    NSUInteger          identifier;
-    NSUInteger          duration;
-    NSInteger           size;
-    __strong NSDate     *modificationDate;
+@interface VDRootDirectory : VDDirectory {
 }
-
-- (id)initWithXMLElement:(NSXMLElement *)anElement;
-
-@property (readonly) NSString *filename;
-@property (readonly) NSString *artist;
-@property (readonly) NSString *title;
-@property (readonly) NSString *uri;
-@property (readonly) NSUInteger identifier;
-@property (readonly) NSUInteger duration;
-
-@property NSInteger size;
-@property NSDate    *modificationDate;
 
 @end

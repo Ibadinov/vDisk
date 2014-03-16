@@ -87,8 +87,8 @@
 		1891DDBC18D47FFD00452DE9 /* OSXFUSE.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OSXFUSE.framework; path = ../../../../../../Library/Frameworks/OSXFUSE.framework; sourceTree = "<group>"; };
 		1891DDBE18D480CD00452DE9 /* OAuth2Client.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = OAuth2Client.xcodeproj; path = OAuth2Client/OAuth2Client.xcodeproj; sourceTree = "<group>"; };
 		1891DDCA18D4871F00452DE9 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
-		1891DDCF18D4F2AD00452DE9 /* VDAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VDAPI.h; sourceTree = "<group>"; };
-		1891DDD018D4F2AD00452DE9 /* VDAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VDAPI.m; sourceTree = "<group>"; };
+		1891DDCF18D4F2AD00452DE9 /* VDAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = VDAPI.h; path = Sources/VDAPI.h; sourceTree = "<group>"; };
+		1891DDD018D4F2AD00452DE9 /* VDAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = VDAPI.m; path = Sources/VDAPI.m; sourceTree = "<group>"; };
 		1891DDD318D5179F00452DE9 /* VDNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = VDNode.h; path = Sources/Nodes/VDNode.h; sourceTree = "<group>"; };
 		1891DDD418D5179F00452DE9 /* VDNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = VDNode.m; path = Sources/Nodes/VDNode.m; sourceTree = "<group>"; };
 		1891DDD618D5180800452DE9 /* VDFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = VDFile.h; path = Sources/Nodes/VDFile.h; sourceTree = "<group>"; };

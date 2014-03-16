@@ -28,9 +28,12 @@
 
 @implementation VDDirectory
 
-- (NSString *)type
+- (NSDictionary *)retrieveAttributes
 {
-    return NSFileTypeDirectory;
+    return [NSDictionary dictionaryWithObjectsAndKeys:
+            [NSNumber numberWithInt:0500], NSFilePosixPermissions,
+            NSFileTypeDirectory, NSFileType,
+            nil];
 }
 
 - (NSDictionary *)getContentsAllowingCache:(BOOL)isCacheAllowed
@@ -38,7 +41,7 @@
     if (!contents || !isCacheAllowed) {
         NSMutableDictionary *retrieved = [[self retrieveContents] mutableCopy];
         @synchronized (self) {
-            for (id filename in retrieved) {
+            for (id filename in [retrieved allKeys]) {
                 VDNode *cached = [contents objectForKey:filename];
                 /* preserve cached elements if possible, for they have their own caches */
                 if ([[retrieved objectForKey:filename] isEqual:cached]) {

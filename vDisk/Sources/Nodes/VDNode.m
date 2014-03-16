@@ -31,12 +31,12 @@ VDGetFinderFriendlyFilename(NSString *filename)
 {
     /* nobody needs those spaces */
     filename = [filename stringByTrimmingCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@" "]];
-    /* Finder demands this form of Unicode normalization */
-    filename = [filename decomposedStringWithCanonicalMapping];
     /* replace “colon” (0x003A) with “modifier letter colon” (0xA789) */
     filename = [filename stringByReplacingOccurrencesOfString:@":" withString:@"꞉"];
     /* replace “slash” with “colon” (Finder displays it as “slash”) */
     filename = [filename stringByReplacingOccurrencesOfString:@"/" withString:@":"];
+    /* Finder demands this form of Unicode normalization */
+    filename = [filename decomposedStringWithCanonicalMapping];
     return filename;
 }
 
@@ -56,26 +56,25 @@ VDGetFinderFriendlyFilename(NSString *filename)
     return name;
 }
 
-- (NSString *)type
-{
-    return [self subclassResponsibility:_cmd];
-}
-
 - (NSDictionary *)retrieveAttributes
 {
-    return [NSDictionary dictionary];
+    return [self subclassResponsibility:_cmd];
 }
 
 - (NSDictionary *)getAttributes
 {
     if (!attributes) {
         NSLog(@"Requesting attributes of node: %@", self);
-        NSDictionary *retrieved = [self retrieveAttributes];
+        NSMutableDictionary *retrieved = [[self retrieveAttributes] mutableCopy];
         @synchronized (self) {
-            attributes = [retrieved mutableCopy];
-            [(NSMutableDictionary *)attributes setObject:[NSNumber numberWithLong:0444] forKey:NSFilePosixPermissions];
-            [(NSMutableDictionary *)attributes setObject:[self type] forKey:NSFileType];
-            return attributes;
+            [retrieved setObject:[NSNumber numberWithInt:geteuid()] forKey:NSFileOwnerAccountID];
+            [retrieved setObject:[NSNumber numberWithInt:getegid()] forKey:NSFileGroupOwnerAccountID];
+            if (![retrieved objectForKey:NSFileCreationDate] || ![retrieved objectForKey:NSFileModificationDate]) {
+                NSDate *date = [NSDate date];
+                [retrieved setObject:date forKey:NSFileCreationDate];
+                [retrieved setObject:date forKey:NSFileModificationDate];
+            }
+            return attributes = retrieved;
         }
     }
     return attributes;

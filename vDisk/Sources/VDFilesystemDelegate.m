@@ -52,38 +52,43 @@ SetError(NSError **error, NSError *value)
     return self;
 }
 
-- (id)getFileSystemElementAtPath:(NSString *)path
+- (id)getFileSystemNodeAtPath:(NSString *)path
 {
     NSArray *components = [path pathComponents];
     NSUInteger count = [components count];
     if (!count) {
         return nil;
     }
-    id result = root;
+    id node = root;
     for (NSUInteger index = 1; index < count; ++index) {
-        result = [[result getContentsAllowingCache:YES] objectForKey:components[index]];
-        if (!result) {
+        if (![node isKindOfClass:[VDDirectory class]]) {
+            return nil;
+        }
+        node = [[node getContentsAllowingCache:YES] objectForKey:components[index]];
+        if (!node) {
             return nil;
         }
     }
-    return result;
+    return node;
 }
 
 #pragma mark Directory Contents
 
 - (NSArray *)contentsOfDirectoryAtPath:(NSString *)path error:(NSError **)error
 {
-    id element = [self getFileSystemElementAtPath:path];
-    if (!element) {
+    NSLog(@"listdir: %@", path);
+    VDNode *node = [self getFileSystemNodeAtPath:path];
+    NSLog(@"Node: %@", node);
+    if (!node) {
         SetError(error, [NSError errorWithPOSIXCode:ENOENT]);
         return nil;
     }
-    if (![element isKindOfClass:[VDDirectory class]]) {
+    if (![node isKindOfClass:[VDDirectory class]]) {
         SetError(error, [NSError errorWithPOSIXCode:ENOTDIR]);
         return nil;
     }
     /* reload contents and update cache */
-    return [[(VDDirectory *)element getContentsAllowingCache:NO] allKeys];
+    return [[(VDDirectory *)node getContentsAllowingCache:NO] allKeys];
 }
 
 #pragma mark Getting Attributes
@@ -92,7 +97,9 @@ SetError(NSError **error, NSError *value)
                                 userData:(id)userData
                                    error:(NSError **)error
 {
-    VDNode *node = [self getFileSystemElementAtPath:path];
+    NSLog(@"getattrs: %@", path);
+    VDNode *node = [self getFileSystemNodeAtPath:path];
+    NSLog(@"Node: %@", node);
     if (!node) {
         NSLog(@"No entry at path: %@", path);
         SetError(error, [NSError errorWithPOSIXCode:ENOENT]);
@@ -114,16 +121,16 @@ SetError(NSError **error, NSError *value)
                  error:(NSError **)error
 {
     NSLog(@"Opening file: %@", path);
-    id element = [self getFileSystemElementAtPath:path];
-    if (!element) {
+    VDNode *node = [self getFileSystemNodeAtPath:path];
+    if (!node) {
         SetError(error, [NSError errorWithPOSIXCode:ENOENT]);
         return NO;
     }
-    if (![element isKindOfClass:[VDFile class]]) {
+    if (![node isKindOfClass:[VDFile class]]) {
         SetError(error, [NSError errorWithPOSIXCode:EISDIR]);
         return NO;
     }
-    *userData = CFBridgingRetain(element);
+    *userData = CFBridgingRetain(node);
     return YES;
 }
 

@@ -73,9 +73,13 @@ VDAttributesOfFileAtURL(NSString *url, NSError **error)
     [request setHTTPMethod:@"HEAD"];
 
     NSHTTPURLResponse *response = nil;
-    [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:error];
+    NSError *underlyingError = nil;
+    [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&underlyingError];
     if (!response) {
-        NSLog(@"Failed to retrieve attribtes, error: %@", *error);
+        NSLog(@"Failed to retrieve attribtes, error: %@", underlyingError);
+        if (error) {
+            *error = underlyingError;
+        }
         return nil;
     }
 

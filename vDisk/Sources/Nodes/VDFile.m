@@ -28,9 +28,12 @@
 
 @implementation VDFile
 
-- (NSString *)type
+- (NSDictionary *)retrieveAttributes
 {
-    return NSFileTypeRegular;
+    return [NSDictionary dictionaryWithObjectsAndKeys:
+            [NSNumber numberWithInt:0400], NSFilePosixPermissions,
+            NSFileTypeRegular, NSFileType,
+            nil];
 }
 
 - (size_t)readDataIntoBuffer:(char *)buffer

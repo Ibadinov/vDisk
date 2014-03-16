@@ -33,7 +33,6 @@
 - (id)initWithName:(NSString *)name;
 
 - (NSString *)name;
-- (NSString *)type;
 
 - (NSDictionary *)getAttributes;
 - (NSDictionary *)retrieveAttributes;

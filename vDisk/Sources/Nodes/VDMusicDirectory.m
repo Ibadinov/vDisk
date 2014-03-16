@@ -46,9 +46,9 @@
 
     NSMutableDictionary *result = [NSMutableDictionary dictionaryWithCapacity:[[document rootElement] childCount]];
     for (NSXMLElement *audio in [[document rootElement] children]) {
-        NSString *artist    = [audio contentOfElementWithName:@"artist"];
-        NSString *title     = [audio contentOfElementWithName:@"title"];
-        NSString *url       = [audio contentOfElementWithName:@"url"];
+        NSString *artist    = VDDecodeXMLEntities([audio contentOfElementWithName:@"artist"]);
+        NSString *title     = VDDecodeXMLEntities([audio contentOfElementWithName:@"title"]);
+        NSString *url       = VDDecodeXMLEntities([audio contentOfElementWithName:@"url"]);
 
         NSString *filename = [NSString stringWithFormat:@"%@ - %@.mp3", artist, title];
         VDRemoteFile *file = [[VDRemoteFile alloc] initWithName:filename URL:url];
